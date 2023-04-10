@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi", "src\D20Tek.CountryApi\D20Tek.CountryApi.csproj", "{0220977B-8598-41A6-8FB8-44531F73C909}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "D20Tek.Country.Shared", "src\D20Tek.Country.Shared\D20Tek.Country.Shared.shproj", "{E1ADA32F-CF3D-40BF-8D50-F3B6EDDF3064}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0220977B-8598-41A6-8FB8-44531F73C909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0220977B-8598-41A6-8FB8-44531F73C909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0220977B-8598-41A6-8FB8-44531F73C909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0220977B-8598-41A6-8FB8-44531F73C909}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DADE7F3C-3D87-46B2-85B9-532E0C440CCA}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\D20Tek.Country.Shared\D20Tek.Country.Shared.projitems*{0220977b-8598-41a6-8fb8-44531f73c909}*SharedItemsImports = 5
+		src\D20Tek.Country.Shared\D20Tek.Country.Shared.projitems*{e1ada32f-cf3d-40bf-8d50-f3b6eddf3064}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
