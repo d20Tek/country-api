@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi", "src\D2
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "D20Tek.Country.Shared", "src\D20Tek.Country.Shared\D20Tek.Country.Shared.shproj", "{E1ADA32F-CF3D-40BF-8D50-F3B6EDDF3064}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".items", ".items", "{A615FD52-9A96-41EE-B78A-70A73D03B203}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflow\ci-build.yml = .github\workflow\ci-build.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
