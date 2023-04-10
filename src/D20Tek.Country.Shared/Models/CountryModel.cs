@@ -3,8 +3,10 @@
 //---------------------------------------------------------------------------------------------------------------------
 namespace D20Tek.Country.Shared.Models
 {
-    public class CountryModel
+    public class CountryModel : IdEntity
     {
+        public override string Id => Alpha3Code;
+
         public string Name { get; set; } = string.Empty;
 
         public string OfficialName { get; set; } = string.Empty;
