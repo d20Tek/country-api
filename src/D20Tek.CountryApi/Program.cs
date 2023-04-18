@@ -12,6 +12,8 @@ namespace D20Tek.CountryApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.ConfigureCors();
+            builder.Services.ConfigureIISIntegration();
             builder.Services.AddRepositories();
 
             builder.Services.AddControllers();
@@ -26,12 +28,15 @@ namespace D20Tek.CountryApi
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
             app.MapControllers();
 
             app.Run();

@@ -1,6 +1,8 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
+using D20Tek.CountryApi.Common;
+
 namespace D20Tek.Country.Shared.Models
 {
     public class CountryModel : IdEntity

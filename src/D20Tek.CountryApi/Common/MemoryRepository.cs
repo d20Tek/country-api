@@ -1,8 +1,6 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-using D20Tek.Country.Shared.Models;
-
 namespace D20Tek.CountryApi.Common
 {
     public class MemoryRepository<T> : MemoryReadRepository<T>, IRepository<T>
@@ -38,7 +36,7 @@ namespace D20Tek.CountryApi.Common
                 Items.Remove(existingItem);
             }
 
-            return existingItem;
+            return existingItem ?? new T();
         }
     }
 }
