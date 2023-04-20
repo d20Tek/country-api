@@ -25,7 +25,7 @@ namespace D20Tek.CountryApi.Controllers
 
         // GET: api/countries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CountryResponse>>> Get()
+        public async Task<ActionResult<IEnumerable<CountryResponse>>> GetCountries()
         {
             var countries = await _repository.GetItemsAsync();
             return Ok(countries.Select(c => _converter.ToResponse(c)));
@@ -33,7 +33,7 @@ namespace D20Tek.CountryApi.Controllers
 
         // GET api/countries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CountryResponse>> Get(string id)
+        public async Task<ActionResult<CountryResponse>> GetCountryById(string id)
         {
             var country = await _repository.GetItemByIdAsync(id);
             return Ok(_converter.ToResponse(country));
@@ -41,16 +41,16 @@ namespace D20Tek.CountryApi.Controllers
 
         // POST api/countries
         [HttpPost]
-        public async Task<ActionResult<CountryResponse>> Post([FromBody] CountryRequest value)
+        public async Task<ActionResult<CountryResponse>> CreateCountry([FromBody] CountryRequest value)
         {
             var entity = _converter.FromRequest(value);
             var createdCountry = await _repository.CreateItemAsync(entity);
-            return CreatedAtAction(nameof(Post), createdCountry);
+            return CreatedAtAction(nameof(CreateCountry), createdCountry);
         }
 
         // PUT api/countries/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<CountryResponse>> Put(string id, [FromBody] CountryRequest value)
+        public async Task<ActionResult<CountryResponse>> UpdateCountry(string id, [FromBody] CountryRequest value)
         {
             var entity = _converter.FromRequest(value);
             var updatedCountry = await _repository.UpdateItemAsync(entity);
@@ -59,7 +59,7 @@ namespace D20Tek.CountryApi.Controllers
 
         // DELETE api/countries/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<CountryResponse>> Delete(string id)
+        public async Task<ActionResult<CountryResponse>> DeleteCountry(string id)
         {
             var deletedCountry = await _repository.DeleteItemAsync(id);
             return Ok(_converter.ToResponse(deletedCountry));
