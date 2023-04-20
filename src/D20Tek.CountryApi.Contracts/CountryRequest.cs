@@ -1,14 +1,10 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-using D20Tek.CountryApi.Common;
-
-namespace D20Tek.Country.Shared.Models
+namespace D20Tek.CountryApi.Contracts
 {
-    public class CountryModel : IdEntity
+    public class CountryRequest
     {
-        public override string Id => Alpha3Code;
-
         public string Name { get; set; } = string.Empty;
 
         public string OfficialName { get; set; } = string.Empty;

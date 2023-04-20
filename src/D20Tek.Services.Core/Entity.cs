@@ -1,9 +1,9 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-namespace D20Tek.CountryApi.Common
+namespace D20Tek.Services.Core
 {
-    public abstract class IdEntity
+    public abstract class Entity
     {
         public abstract string Id { get; }
     }

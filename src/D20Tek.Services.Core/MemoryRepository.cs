@@ -1,14 +1,14 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-namespace D20Tek.CountryApi.Common
+namespace D20Tek.Services.Core
 {
     public class MemoryRepository<T> : MemoryReadRepository<T>, IRepository<T>
-        where T : IdEntity, new()
+        where T : Entity, new()
     {
         public Task<T> CreateItemAsync(T item)
         {
-            if (item == null) throw new ArgumentNullException("item");
+            ArgumentNullException.ThrowIfNull(item, nameof(item));
 
             Items.Add(item);
             return Task.FromResult(item);
@@ -16,7 +16,7 @@ namespace D20Tek.CountryApi.Common
 
         public async Task<T> UpdateItemAsync(T item)
         {
-            if (item == null) throw new ArgumentNullException("item");
+            ArgumentNullException.ThrowIfNull(item, nameof(item));
 
             var existingItem = await GetItemByIdAsync(item.Id);
             if (existingItem != null)
@@ -30,6 +30,8 @@ namespace D20Tek.CountryApi.Common
 
         public async Task<T> DeleteItemAsync(string itemId)
         {
+            ArgumentNullException.ThrowIfNullOrEmpty(itemId, nameof(itemId));
+
             var existingItem = await GetItemByIdAsync(itemId);
             if (existingItem != null)
             {

@@ -1,12 +1,10 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-using D20Tek.Country.Shared.Models;
-
-namespace D20Tek.CountryApi.Common
+namespace D20Tek.Services.Core
 {
     public class MemoryReadRepository<T> : IReadRepository<T>
-        where T : IdEntity, new()
+        where T : Entity, new()
     {
         protected IList<T> Items { get; } = new List<T>();
 

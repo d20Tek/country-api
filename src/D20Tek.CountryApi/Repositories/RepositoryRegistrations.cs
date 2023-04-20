@@ -1,8 +1,8 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-using D20Tek.Country.Shared.Models;
-using D20Tek.CountryApi.Common;
+using D20Tek.CountryApi.Entities;
+using D20Tek.Services.Core;
 
 namespace D20Tek.CountryApi.Repositories
 {
@@ -10,7 +10,7 @@ namespace D20Tek.CountryApi.Repositories
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddSingleton<IRepository<CountryModel>, CountryRepository>();
+            services.AddSingleton<IRepository<CountryEntity>, CountryRepository>();
             return services;
         }
     }

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi", "src\D20Tek.CountryApi\D20Tek.CountryApi.csproj", "{0220977B-8598-41A6-8FB8-44531F73C909}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "D20Tek.Country.Shared", "src\D20Tek.Country.Shared\D20Tek.Country.Shared.shproj", "{E1ADA32F-CF3D-40BF-8D50-F3B6EDDF3064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.CountryApi", "src\D20Tek.CountryApi\D20Tek.CountryApi.csproj", "{0220977B-8598-41A6-8FB8-44531F73C909}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".items", ".items", "{A615FD52-9A96-41EE-B78A-70A73D03B203}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflow\ci-build.yml = .github\workflow\ci-build.yml
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi.Contracts", "src\D20Tek.CountryApi.Contracts\D20Tek.CountryApi.Contracts.csproj", "{FA801AFF-511A-416C-B28C-D5FA49DF0102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.Services.Core", "src\D20Tek.Services.Core\D20Tek.Services.Core.csproj", "{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,15 +25,19 @@ Global
 		{0220977B-8598-41A6-8FB8-44531F73C909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0220977B-8598-41A6-8FB8-44531F73C909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0220977B-8598-41A6-8FB8-44531F73C909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA801AFF-511A-416C-B28C-D5FA49DF0102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA801AFF-511A-416C-B28C-D5FA49DF0102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA801AFF-511A-416C-B28C-D5FA49DF0102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA801AFF-511A-416C-B28C-D5FA49DF0102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DADE7F3C-3D87-46B2-85B9-532E0C440CCA}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\D20Tek.Country.Shared\D20Tek.Country.Shared.projitems*{0220977b-8598-41a6-8fb8-44531f73c909}*SharedItemsImports = 5
-		src\D20Tek.Country.Shared\D20Tek.Country.Shared.projitems*{e1ada32f-cf3d-40bf-8d50-f3b6eddf3064}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

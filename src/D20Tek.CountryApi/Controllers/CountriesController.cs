@@ -1,8 +1,10 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
-using D20Tek.Country.Shared.Models;
-using D20Tek.CountryApi.Common;
+using D20Tek.CountryApi.Contracts;
+using D20Tek.CountryApi.Entities;
+using D20Tek.CountryApi.Entities.Converters;
+using D20Tek.Services.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace D20Tek.CountryApi.Controllers
@@ -11,49 +13,56 @@ namespace D20Tek.CountryApi.Controllers
     [ApiController]
     public class CountriesController : ControllerBase
     {
-        private readonly IRepository<CountryModel> _repository;
+        private readonly IRepository<CountryEntity> _repository;
+        private readonly CountryEntityConverter _converter;
 
-        public CountriesController(IRepository<CountryModel> repository)
+        public CountriesController(IRepository<CountryEntity> repository)
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(nameof(repository));
+            ArgumentNullException.ThrowIfNull(nameof(repository));
             _repository = repository;
+            _converter = new CountryEntityConverter();
         }
 
         // GET: api/countries
         [HttpGet]
-        public async Task<IEnumerable<CountryModel>> Get()
+        public async Task<ActionResult<IEnumerable<CountryResponse>>> Get()
         {
-            return await _repository.GetItemsAsync();
+            var countries = await _repository.GetItemsAsync();
+            return Ok(countries.Select(c => _converter.ToResponse(c)));
         }
 
         // GET api/countries/5
         [HttpGet("{id}")]
-        public async Task<CountryModel> Get(string id)
+        public async Task<ActionResult<CountryResponse>> Get(string id)
         {
-            return await _repository.GetItemByIdAsync(id);
+            var country = await _repository.GetItemByIdAsync(id);
+            return Ok(_converter.ToResponse(country));
         }
 
         // POST api/countries
         [HttpPost]
-        public async Task<CountryModel> Post([FromBody] CountryModel value)
+        public async Task<ActionResult<CountryResponse>> Post([FromBody] CountryRequest value)
         {
-            return await _repository.CreateItemAsync(value);
+            var entity = _converter.FromRequest(value);
+            var createdCountry = await _repository.CreateItemAsync(entity);
+            return CreatedAtAction(nameof(Post), createdCountry);
         }
 
         // PUT api/countries/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<CountryModel>> Put(string id, [FromBody] CountryModel value)
+        public async Task<ActionResult<CountryResponse>> Put(string id, [FromBody] CountryRequest value)
         {
-            if (id != value.Id) return BadRequest();
-
-            return await _repository.UpdateItemAsync(value);
+            var entity = _converter.FromRequest(value);
+            var updatedCountry = await _repository.UpdateItemAsync(entity);
+            return Ok(updatedCountry);
         }
 
         // DELETE api/countries/5
         [HttpDelete("{id}")]
-        public async Task<CountryModel> Delete(string id)
+        public async Task<ActionResult<CountryResponse>> Delete(string id)
         {
-            return await _repository.DeleteItemAsync(id);
+            var deletedCountry = await _repository.DeleteItemAsync(id);
+            return Ok(_converter.ToResponse(deletedCountry));
         }
     }
 }

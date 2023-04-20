@@ -11,6 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
-  <Import Project="..\D20Tek.Country.Shared\D20Tek.Country.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\D20Tek.CountryApi.Contracts\D20Tek.CountryApi.Contracts.csproj" />
+    <ProjectReference Include="..\D20Tek.Services.Core\D20Tek.Services.Core.csproj" />
+  </ItemGroup>
 
 </Project>
