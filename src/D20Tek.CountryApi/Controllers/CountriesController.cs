@@ -28,7 +28,8 @@ namespace D20Tek.CountryApi.Controllers
         public async Task<ActionResult<IEnumerable<CountryResponse>>> GetCountries()
         {
             var countries = await _repository.GetItemsAsync();
-            return Ok(countries.Select(c => _converter.ToResponse(c)));
+            var response = countries.Select(c => _converter.ToResponse(c));
+            return Ok(response);
         }
 
         // GET api/countries/5
@@ -45,7 +46,7 @@ namespace D20Tek.CountryApi.Controllers
         {
             var entity = _converter.FromRequest(value);
             var createdCountry = await _repository.CreateItemAsync(entity);
-            return CreatedAtAction(nameof(CreateCountry), createdCountry);
+            return CreatedAtAction(nameof(CreateCountry), _converter.ToResponse(createdCountry));
         }
 
         // PUT api/countries/5
@@ -54,7 +55,7 @@ namespace D20Tek.CountryApi.Controllers
         {
             var entity = _converter.FromRequest(value);
             var updatedCountry = await _repository.UpdateItemAsync(entity);
-            return Ok(updatedCountry);
+            return Ok(_converter.ToResponse(updatedCountry));
         }
 
         // DELETE api/countries/5
