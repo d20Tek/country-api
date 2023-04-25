@@ -7,13 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.CountryApi", "src\D2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".items", ".items", "{A615FD52-9A96-41EE-B78A-70A73D03B203}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflow\ci-build.yml = .github\workflow\ci-build.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi.Contracts", "src\D20Tek.CountryApi.Contracts\D20Tek.CountryApi.Contracts.csproj", "{FA801AFF-511A-416C-B28C-D5FA49DF0102}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.CountryApi.Contracts", "src\D20Tek.CountryApi.Contracts\D20Tek.CountryApi.Contracts.csproj", "{FA801AFF-511A-416C-B28C-D5FA49DF0102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.Services.Core", "src\D20Tek.Services.Core\D20Tek.Services.Core.csproj", "{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.Services.Core", "src\D20Tek.Services.Core\D20Tek.Services.Core.csproj", "{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A66D45AA-FAAB-447F-B636-B55A2397C0C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi.UnitTests", "tests\D20Tek.CountryApi.UnitTests\D20Tek.CountryApi.UnitTests.csproj", "{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +36,16 @@ Global
 		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB426E1F-06A7-4FE7-AA8D-60DF58898B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF} = {A66D45AA-FAAB-447F-B636-B55A2397C0C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DADE7F3C-3D87-46B2-85B9-532E0C440CCA}

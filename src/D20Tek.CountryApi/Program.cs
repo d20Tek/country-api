@@ -2,9 +2,11 @@
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
 using D20Tek.CountryApi.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 namespace D20Tek.CountryApi
 {
+    [ExcludeFromCodeCoverage(Justification = "Generated code")]
     public class Program
     {
         public static void Main(string[] args)
