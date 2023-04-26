@@ -20,8 +20,10 @@ namespace D20Tek.CountryApi.Entities.Converters
             };
         }
 
-        public CountryResponse ToResponse(CountryEntity entity)
+        public CountryResponse? ToResponse(CountryEntity entity)
         {
+            if (entity == null) return null;
+
             return new CountryResponse
             {
                 Name = entity.Name,
