@@ -2,6 +2,7 @@
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
 using D20Tek.Services.Core.UnitTests.Fakes;
+using System.Diagnostics.CodeAnalysis;
 
 namespace D20Tek.Services.Core.UnitTests
 {
@@ -21,6 +22,24 @@ namespace D20Tek.Services.Core.UnitTests
             // assert
             Assert.IsNotNull(result);
             Assert.AreEqual("foo", result.EntityId);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityAlreadyExistsException))]
+        [ExcludeFromCodeCoverage]
+        public async Task UpdateItem_WithExistingEntityId()
+        {
+            // arrange
+            var entities = new List<TestEntity>
+            {
+                new TestEntity { EntityId = "test1", Name = "Test1", Value = 1 },
+            };
+            var repo = new TestRepository(entities);
+
+            var newEntity = new TestEntity { EntityId = "test1", Name = "bar", Value = 3 };
+
+            // act
+            var result = await repo.CreateItemAsync(newEntity);
         }
 
         [TestMethod]
@@ -46,6 +65,20 @@ namespace D20Tek.Services.Core.UnitTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(EntityNotFoundException))]
+        [ExcludeFromCodeCoverage]
+        public async Task UpdateItem_WithNonExistingEntity()
+        {
+            // arrange
+            var repo = new TestRepository();
+
+            var updatedEntity = new TestEntity { EntityId = "test1", Name = "bar", Value = 3 };
+
+            // act
+            var result = await repo.UpdateItemAsync(updatedEntity);
+        }
+
+        [TestMethod]
         public async Task DeleteItem_WithValidEntity()
         {
             // arrange
@@ -64,6 +97,19 @@ namespace D20Tek.Services.Core.UnitTests
 
             var items = await repo.GetItemsAsync();
             Assert.IsFalse(items.Any());
+        }
+
+        [TestMethod]
+        public async Task DeleteItem_WithNonExistingEntity()
+        {
+            // arrange
+            var repo = new TestRepository();
+
+            // act
+            var result = await repo.DeleteItemAsync("test1");
+
+            // assert
+            Assert.IsNull(result);
         }
     }
 }
