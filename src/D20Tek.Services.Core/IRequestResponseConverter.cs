@@ -10,6 +10,6 @@ namespace D20Tek.Services.Core
     {
         public TEntity FromRequest(TRequest requestModel);
 
-        public TResponse ToResponse(TEntity entity);
+        public TResponse? ToResponse(TEntity? entity);
     }
 }

@@ -51,6 +51,7 @@ namespace D20Tek.CountryApi.UnitTests
             // act
             var provider = services.BuildServiceProvider();
             Assert.IsNotNull(provider.GetService<IConfigureOptions<IISOptions>>());
+            Assert.IsNotNull(provider.GetService<IOptions<IISOptions>>());
         }
 
         [TestMethod]

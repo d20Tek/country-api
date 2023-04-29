@@ -10,6 +10,6 @@ namespace D20Tek.Services.Core
 
         Task<T> UpdateItemAsync(T item);
 
-        Task<T> DeleteItemAsync(string itemId);
+        Task<T?> DeleteItemAsync(string itemId);
     }
 }

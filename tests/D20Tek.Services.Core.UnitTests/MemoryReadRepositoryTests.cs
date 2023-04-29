@@ -2,6 +2,7 @@
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
 using D20Tek.Services.Core.UnitTests.Fakes;
+using System.Diagnostics.CodeAnalysis;
 
 namespace D20Tek.Services.Core.UnitTests
 {
@@ -61,6 +62,18 @@ namespace D20Tek.Services.Core.UnitTests
             Assert.AreEqual("test1", result.EntityId);
             Assert.AreEqual("Test1", result.Name);
             Assert.AreEqual(1, result.Value);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityNotFoundException))]
+        [ExcludeFromCodeCoverage]
+        public async Task GetItemByIdAsync_WithNonExistingItemId()
+        {
+            // arrange
+            var repo = new TestRepository();
+
+            // act
+            var result = await repo.GetItemByIdAsync("test1");
         }
     }
 }

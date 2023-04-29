@@ -16,9 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.Services.Core", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A66D45AA-FAAB-447F-B636-B55A2397C0C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.CountryApi.UnitTests", "tests\D20Tek.CountryApi.UnitTests\D20Tek.CountryApi.UnitTests.csproj", "{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.CountryApi.UnitTests", "tests\D20Tek.CountryApi.UnitTests\D20Tek.CountryApi.UnitTests.csproj", "{D701C2F7-F780-4E0E-B4F2-C5DDF9D3A4AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D20Tek.Services.Core.UnitTests", "tests\D20Tek.Services.Core.UnitTests\D20Tek.Services.Core.UnitTests.csproj", "{725BC9B6-1C36-4858-B6AB-66CDD593E576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D20Tek.Services.Core.UnitTests", "tests\D20Tek.Services.Core.UnitTests\D20Tek.Services.Core.UnitTests.csproj", "{725BC9B6-1C36-4858-B6AB-66CDD593E576}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

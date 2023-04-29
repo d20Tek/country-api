@@ -13,9 +13,18 @@ namespace D20Tek.Services.Core
             return Task.FromResult(Items);
         }
 
-        public Task<T> GetItemByIdAsync(string itemId)
+        public async Task<T> GetItemByIdAsync(string itemId)
         {
-            return Task.FromResult(Items.First(i => i.Id == itemId));
+            var result = await TryGetItemByIdAsync(itemId) ?? 
+                throw new EntityNotFoundException("Id", itemId);
+
+            return result;
+        }
+
+        protected Task<T?> TryGetItemByIdAsync(string itemId)
+        {
+            var result = Items.FirstOrDefault(i => i.Id == itemId);
+            return Task.FromResult(result);
         }
     }
 }

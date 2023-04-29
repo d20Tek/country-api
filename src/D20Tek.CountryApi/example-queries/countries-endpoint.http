@@ -1,0 +1,38 @@
+@port = 7195
+@baseUrl = https://localhost:{{port}}
+@contentType = application/json
+@id = TST
+
+### Get all countries
+GET {{baseUrl}}/api/v1/countries
+
+### Create new country
+POST {{baseUrl}}/api/v1/countries
+Content-Type: {{contentType}}
+
+{
+  "name": "Test",
+  "officialName": "TestLandia",
+  "alpha2Code": "TS",
+  "alpha3Code": "TST",
+  "numericCode": "042"
+}
+
+### Update country with id
+PUT {{baseUrl}}/api/v1/countries/{{id}}
+Content-Type: {{contentType}}
+
+{
+  "name": "Test2",
+  "officialName": "TestLandia2",
+  "alpha2Code": "TS",
+  "alpha3Code": "TST",
+  "numericCode": "042222"
+}
+
+### Get country with specified id
+GET {{baseUrl}}/api/v1/countries/{{id}}
+
+### Delete country with specified id
+DELETE {{baseUrl}}/api/v1/countries/{{id}}
+

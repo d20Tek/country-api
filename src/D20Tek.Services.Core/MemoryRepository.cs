@@ -6,12 +6,17 @@ namespace D20Tek.Services.Core
     public class MemoryRepository<T> : MemoryReadRepository<T>, IRepository<T>
         where T : Entity, new()
     {
-        public Task<T> CreateItemAsync(T item)
+        public async Task<T> CreateItemAsync(T item)
         {
             ArgumentNullException.ThrowIfNull(item, nameof(item));
 
+            if ((await TryGetItemByIdAsync(item.Id)) != null)
+            {
+                throw new EntityAlreadyExistsException("Id", item.Id);
+            }
+
             Items.Add(item);
-            return Task.FromResult(item);
+            return item;
         }
 
         public async Task<T> UpdateItemAsync(T item)
@@ -28,17 +33,17 @@ namespace D20Tek.Services.Core
             return item;
         }
 
-        public async Task<T> DeleteItemAsync(string itemId)
+        public async Task<T?> DeleteItemAsync(string itemId)
         {
             ArgumentNullException.ThrowIfNullOrEmpty(itemId, nameof(itemId));
 
-            var existingItem = await GetItemByIdAsync(itemId);
+            var existingItem = await TryGetItemByIdAsync(itemId);
             if (existingItem != null)
             {
                 Items.Remove(existingItem);
             }
 
-            return existingItem ?? new T();
+            return existingItem;
         }
     }
 }
