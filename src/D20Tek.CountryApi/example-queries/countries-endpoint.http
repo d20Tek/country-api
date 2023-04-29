@@ -1,6 +1,5 @@
-@hostname = localhost
 @port = 7195
-@baseUrl = https://{{hostname}}:{{port}}
+@baseUrl = https://localhost:{{port}}
 @contentType = application/json
 @id = TST
 

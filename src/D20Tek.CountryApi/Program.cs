@@ -2,6 +2,7 @@
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
 using D20Tek.CountryApi.Repositories;
+using D20Tek.Services.Core;
 using System.Diagnostics.CodeAnalysis;
 
 namespace D20Tek.CountryApi
@@ -19,6 +20,7 @@ namespace D20Tek.CountryApi
             builder.Services.AddRepositories();
 
             builder.Services.AddControllers();
+            
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -30,13 +32,13 @@ namespace D20Tek.CountryApi
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                app.UseDeveloperExceptionPage();
             }
             else
             {
                 app.UseHsts();
             }
 
+            app.UseExceptionHandler("/error");
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
