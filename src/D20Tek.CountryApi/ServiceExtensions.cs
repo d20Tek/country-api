@@ -1,6 +1,8 @@
 ﻿//---------------------------------------------------------------------------------------------------------------------
 // Copyright (c) d20Tek.  All rights reserved.
 //---------------------------------------------------------------------------------------------------------------------
+using System.Diagnostics.CodeAnalysis;
+
 namespace D20Tek.CountryApi
 {
     public static class ServiceExtensions
@@ -16,10 +18,11 @@ namespace D20Tek.CountryApi
             });
         }
 
+        [ExcludeFromCodeCoverage]
         public static void ConfigureIISIntegration(this IServiceCollection services)
         {
             services.Configure<IISOptions>(options =>
-            {
+            { 
             });
         }
     }
